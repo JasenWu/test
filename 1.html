@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<style>
+  body,ul{
+    padding: 0;
+    margin: 0;
+
+  }
+  html,body,ul{
+    height:100%;
+  }
+  body{
+    overflow: hidden;
+  }
+  .wrap{
+    display: flex;
+    list-style: none;
+    flex-wrap: nowrap;
+    width:100%;
+    height:100%;
+  }
+  .item{
+    align-items:stretch;
+    width: 100%;
+    display: none;
+  }
+  .active{
+   display: block;
+  }
+  
+  .item-1{
+    background: green;
+  }
+  .item-2{
+    background: greenyellow;
+
+  }
+  .item-3{
+    background: yellow; 
+  }
+  #btn{
+    position: fixed;
+    right:10px;
+    bottom:10px;
+    background:gray; 
+    padding: 15px;
+    transform:rotateX(7deg);
+ 
+  }
+</style>
+<body>
+
+  <ul class="wrap">
+    <li class="item item-1 active" style="transform: rotateY(0deg);">left</li>
+    <li class="item item-2" style="transform: rotateY(60deg);">center</li>
+    <li class="item item-3" style="transform: rotateY(300deg);">right</li>
+  </ul>
+  <button id="btn">next</button>
+<script>
+ 
+
+
+  var btn = document.getElementById('btn');
+
+  function eq(index){
+    var list =  document.querySelectorAll('ul li');
+    return list[index];
+  }
+
+  btn.onclick = function(e){
+    var list =  document.querySelectorAll('ul li');
+    let index = 0;
+    for(let i = 0; i <list.length;i++ ){
+      if(list[i].className.indexOf('acitve') != -1){
+        
+        index = i;
+      } 
+    }
+    let next = index+=1;
+    console.log('next',next);
+
+
+    
+  }
+
+</script>
+
+</body>
+
+</html>
